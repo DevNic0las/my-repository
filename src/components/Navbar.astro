@@ -1,0 +1,94 @@
+---
+const links = [
+  { href: '#about', label: 'sobre' },
+  { href: '#skills', label: 'skills' },
+  { href: '#projects', label: 'projetos' },
+  { href: '#contact', label: 'contato' },
+];
+---
+ 
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="/" class="nav-logo">
+      <span class="logo-bracket">{`{`}</span>
+      <span class="logo-name">nc</span>
+      <span class="logo-bracket">{`}`}</span>
+    </a>
+ 
+    <ul class="nav-links">
+      {links.map((link) => (
+        <li>
+          <a href={link.href} class="nav-link">{link.label}</a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>
+ 
+<style>
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 1.25rem 0;
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+ 
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+ 
+  .nav-logo {
+    font-family: var(--font-mono);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-primary);
+    transition: opacity 0.2s;
+  }
+ 
+  .nav-logo:hover {
+    opacity: 0.6;
+  }
+ 
+  .logo-bracket {
+    color: var(--text-muted);
+  }
+ 
+  .logo-name {
+    color: var(--text-primary);
+    margin: 0 1px;
+  }
+ 
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+ 
+  .nav-link {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    transition: color 0.2s;
+  }
+ 
+  .nav-link:hover {
+    color: var(--text-primary);
+  }
+ 
+  @media (max-width: 520px) {
+    .nav-links {
+      gap: 1.25rem;
+    }
+    .nav-link {
+      font-size: 11px;
+    }
+  }
+</style>

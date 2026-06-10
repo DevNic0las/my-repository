@@ -1,0 +1,131 @@
+---
+
+---
+
+<section class="section" id="about">
+  <div class="container">
+    <p class="section-label">sobre mim</p>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <h2>Backend developer<br /></h2>
+
+        <p>
+          Desenvolvedor Backend com foco em Java e Spring Boot. Experiência
+          no desenvolvimento de APIs REST, autenticação com JWT, mensageria com
+          RabbitMQ, Docker e PostgreSQL.
+        </p>
+
+        <p>
+          Atualmente contribuo como desenvolvedor voluntário em uma startup B2B
+          SaaS e desenvolvi o <strong>Ponte</strong>, um sistema de
+          gerenciamento de tickets de suporte criado como projeto acadêmico.
+          Estou em busca da minha primeira oportunidade como desenvolvedor
+          júnior.
+        </p>
+
+        <div class="about-tags">
+          <span class="tag">clean code</span>
+          <span class="tag">boas práticas</span>
+          <span class="tag">aprendizado contínuo</span>
+        </div>
+      </div>
+
+      <div class="about-stats">
+        <div class="stat-card">
+          <span class="stat-number">3+</span>
+          <span class="stat-label">projetos em produção</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">2</span>
+          <span class="stat-label">anos de estudo</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">∞</span>
+          <span class="stat-label">vontade de aprender</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-text h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .about-text p {
+    color: var(--text-secondary);
+    font-size: 15px;
+    margin-bottom: 1rem;
+  }
+
+  .about-text p strong {
+    color: var(--text-primary);
+    font-weight: 400;
+  }
+
+  .about-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    padding: 0.3rem 0.75rem;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    border-radius: 2px;
+    letter-spacing: 0.04em;
+  }
+
+  .about-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .stat-card {
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .stat-card:first-child {
+    border-top: 1px solid var(--border);
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: -0.04em;
+    color: var(--text-primary);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+
+  @media (max-width: 640px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+</style>
