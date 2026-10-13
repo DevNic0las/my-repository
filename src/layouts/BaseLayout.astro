@@ -1,31 +1,46 @@
 ---
 import '../css/global.css';
- 
+
 interface Props {
   title?: string;
   description?: string;
 }
- 
+
 const {
-  title = 'Nicolas | Backend Developer',
-  description = 'Backend Developer especializado em Java & Spring Boot',
+  title = 'Nicolas Cajueiro — Backend Java/Spring Boot',
+  description =
+    'Desenvolvedor backend júnior em Java e Spring Boot. APIs REST, mensageria com RabbitMQ, PostgreSQL e Docker. Projetos no ar e disponível para vaga remota.',
 } = Astro.props;
+
+const site = 'https://nicolascajueiro.dev';
+const canonical = new URL(Astro.url.pathname, site).href;
 ---
- 
+
 <!doctype html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <meta name="author" content="Nicolas" />
+    <meta name="author" content="Nicolas Cajueiro" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
     <title>{title}</title>
- 
+
     <!-- Open Graph -->
+    <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="Nicolas Cajueiro" />
+    <meta property="og:locale" content="pt_BR" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
   </head>
   <body>
     <slot />
@@ -53,4 +68,3 @@ const {
     </script>
   </body>
 </html>
- 
