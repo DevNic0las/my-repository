@@ -1,0 +1,128 @@
+---
+const experiences = [
+  {
+    role: 'Desenvolvedor Backend — Voluntário',
+    company: 'Softwares for You',
+    period: 'até jun/2026',
+    location: 'remoto',
+    summary:
+      'Atuação voluntária no desenvolvimento de APIs e serviços backend em um SaaS B2B.',
+    // TODO: substituir pelas entregas reais (2-3), com o que foi construído e o impacto
+    deliverables: [
+      'TODO: entrega 1 — descrever o que foi construído (ex.: endpoint/fluxo) e o resultado.',
+      'TODO: entrega 2 — descrever o que foi construído e o resultado.',
+      'TODO: entrega 3 — descrever o que foi construído e o resultado.',
+    ],
+  },
+];
+---
+
+<section class="section" id="experience" data-animate>
+  <div class="container">
+    <p class="section-label">experiência</p>
+
+    <h2 style="margin-bottom: 3rem;">Onde já apliquei</h2>
+
+    <div class="exp-list">
+      {
+        experiences.map((exp) => (
+          <article class="exp-item">
+            <div class="exp-head">
+              <div>
+                <h3 class="exp-role">{exp.role}</h3>
+                <p class="exp-company">
+                  {exp.company} <span class="exp-sep">·</span> {exp.location}
+                </p>
+              </div>
+              <span class="exp-period">{exp.period}</span>
+            </div>
+
+            <p class="exp-summary">{exp.summary}</p>
+
+            <ul class="exp-deliverables">
+              {exp.deliverables.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .exp-list {
+    border-top: 1px solid var(--border);
+  }
+
+  .exp-item {
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .exp-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+
+  .exp-role {
+    font-size: 1.15rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  .exp-company {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+
+  .exp-sep {
+    color: var(--text-muted);
+  }
+
+  .exp-period {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+
+  .exp-summary {
+    font-size: 15px;
+    color: var(--text-secondary);
+    max-width: 620px;
+    margin-bottom: 1.25rem;
+  }
+
+  .exp-deliverables {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .exp-deliverables li {
+    position: relative;
+    padding-left: 1.25rem;
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .exp-deliverables li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-family: var(--font-mono);
+  }
+</style>
