@@ -17,12 +17,12 @@ const services = [
 <section class="hero" id="hero">
   <div class="container hero-inner">
     <div class="hero-left">
-      <p class="hero-tag"><span class="dot"></span> júnior · remoto · disponível agora</p>
+      <p class="hero-tag"><span class="dot"></span> backend · remoto · aberto a vaga júnior</p>
       <h1 class="hero-name">Nicolas Cajueiro</h1>
-      <p class="hero-role">Backend Developer · Java & Spring Boot</p>
+      <p class="hero-role">Desenvolvedor Backend · Java &amp; Spring Boot</p>
       <p class="hero-description">
-        Construo APIs REST e sistemas assíncronos em Java e Spring Boot, com
-        mensageria, retry e DLQ. Abra os projetos e veja o código.
+        Construo APIs REST e sistemas assíncronos com mensageria, retry e DLQ.
+        Os projetos abaixo estão no ar e com código aberto.
       </p>
 
       <ul class="stack-badges">
@@ -89,15 +89,15 @@ const services = [
   .hero-inner { display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; align-items: center; }
   @media (max-width: 860px) { .hero-inner { grid-template-columns: 1fr; } }
 
-  .hero-tag { display: flex; align-items: center; gap: .5rem; font-family: var(--font-mono); font-size: 12px; color: var(--text-secondary); margin-bottom: 1.5rem; }
+  .hero-tag { display: flex; align-items: center; gap: .5rem; font-family: var(--font-mono); font-size: var(--text-meta); letter-spacing: .08em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 1.5rem; }
   .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
 
-  .hero-name { font-size: clamp(2.5rem, 7vw, 4.5rem); font-weight: 500; letter-spacing: -0.035em; line-height: 1.05; margin-bottom: .75rem; color: var(--text-primary); }
-  .hero-role { font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 1.25rem; }
-  .hero-description { max-width: 460px; color: var(--text-secondary); font-size: 15px; line-height: 1.7; margin-bottom: 1.5rem; }
+  .hero-name { font-size: var(--text-display); font-weight: 500; letter-spacing: -0.035em; line-height: 1.02; margin-bottom: .6rem; color: var(--text-primary); }
+  .hero-role { font-size: clamp(1.1rem, 2.4vw, 1.3rem); font-weight: 500; color: var(--text-primary); margin-bottom: 1rem; }
+  .hero-description { max-width: 52ch; color: var(--text-secondary); font-size: var(--text-body); line-height: 1.7; margin-bottom: 1.5rem; }
 
   .stack-badges { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; padding: 0; margin: 0 0 2rem; }
-  .stack-badges li { font-family: var(--font-mono); font-size: 11px; padding: .25rem .6rem; border: 1px solid var(--border); border-radius: 2px; color: var(--text-secondary); }
+  .stack-badges li { font-family: var(--font-mono); font-size: var(--text-meta); letter-spacing: .04em; padding: .3rem .7rem; border: 1px solid var(--border); border-radius: 2px; color: var(--text-secondary); }
 
   .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-bottom: 1.75rem; }
   .btn-primary, .btn-ghost { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .06em; padding: .65rem 1.4rem; border-radius: 2px; transition: opacity .2s, border-color .2s, color .2s; }

@@ -10,7 +10,7 @@ const skills = {
   <div class="container">
     <p class="section-label">stack</p>
  
-    <h2 style="margin-bottom: 3rem;">Tecnologias que uso</h2>
+    <h2 class="section-title">Tecnologias que uso</h2>
  
     <div class="skills-grid">
       {Object.entries(skills).map(([category, items]) => (
@@ -47,33 +47,33 @@ const skills = {
  
   .skill-category {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-meta);
     letter-spacing: 0.1em;
-    color: var(--text-muted);
+    color: var(--text-secondary);
     text-transform: uppercase;
     margin-bottom: 1.25rem;
   }
- 
+  
   .skill-list {
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 0.6rem;
   }
- 
+  
   .skill-item {
-    font-size: 14px;
+    font-size: var(--text-body);
     color: var(--text-secondary);
     display: flex;
     align-items: center;
     gap: 0.5rem;
     transition: color 0.2s;
   }
- 
+  
   .skill-item:hover {
     color: var(--text-primary);
   }
- 
+  
   .skill-dot {
     color: var(--text-muted);
     font-family: var(--font-mono);

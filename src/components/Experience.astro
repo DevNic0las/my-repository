@@ -21,7 +21,7 @@ const experiences = [
   <div class="container">
     <p class="section-label">experiência</p>
 
-    <h2 style="margin-bottom: 3rem;">Onde já apliquei</h2>
+    <h2 class="section-title">Onde já apliquei</h2>
 
     <div class="exp-list">
       {
@@ -71,8 +71,8 @@ const experiences = [
   }
 
   .exp-role {
-    font-size: 1.15rem;
-    font-weight: 400;
+    font-size: var(--text-entry);
+    font-weight: 500;
     letter-spacing: -0.01em;
     color: var(--text-primary);
     margin-bottom: 0.25rem;
@@ -90,16 +90,16 @@ const experiences = [
 
   .exp-period {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--text-meta);
     letter-spacing: 0.05em;
-    color: var(--text-muted);
+    color: var(--text-secondary);
     white-space: nowrap;
   }
 
   .exp-summary {
-    font-size: 15px;
+    font-size: var(--text-body);
     color: var(--text-secondary);
-    max-width: 620px;
+    max-width: 68ch;
     margin-bottom: 1.25rem;
   }
 
@@ -113,9 +113,10 @@ const experiences = [
   .exp-deliverables li {
     position: relative;
     padding-left: 1.25rem;
-    font-size: 14px;
-    color: var(--text-muted);
-    line-height: 1.6;
+    font-size: var(--text-body);
+    color: var(--text-secondary);
+    line-height: 1.65;
+    max-width: 68ch;
   }
 
   .exp-deliverables li::before {
