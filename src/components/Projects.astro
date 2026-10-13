@@ -4,10 +4,10 @@ const projects = [
     number: "01",
     name: "OrderFlow",
     highlight:
-      "Saga coreografada com outbox e idempotência: nenhum pedido se perde, mesmo com falha no meio.",
+      "Fluxo de pedidos orientado a eventos com Outbox Pattern, idempotência e compensação para aumentar a confiabilidade diante de falhas.",
     description:
-      "Sistema de pedidos distribuído orientado a eventos, com compensação e DLQ em Java 21 + Spring Boot sobre RabbitMQ.",
-    stack: ["Java", "Spring Boot", "RabbitMQ", "Docker"],
+      "Sistema de pedidos distribuído em Java 21 + Spring Boot sobre RabbitMQ. Cada serviço tem seu próprio schema e reage a eventos, sem chamada síncrona no fluxo de negócio. Saga coreografada com compensação (o estoque é devolvido quando o pagamento recusa), Outbox Pattern para publicar eventos na mesma transação da gravação do pedido, idempotência via INSERT ... ON CONFLICT e DLQ para mensagens não processáveis. Pagamento simulado (sempre aprova); o ramo de recusa é coberto por testes com Testcontainers. Deploy no Azure Container Apps via GitHub Actions, sujeito a cold start por ser JVM.",
+    stack: ["Java 21", "Spring Boot", "RabbitMQ", "PostgreSQL", "Docker"],
     github: "https://github.com/DevNic0las/order-flow",
     live: "https://web.proudpond-c6cb94c4.brazilsouth.azurecontainerapps.io/login",
     featured: true,
@@ -20,10 +20,10 @@ const projects = [
     number: "02",
     name: "Support Ticket API",
     highlight:
-      "Autenticação stateless com JWT e Spring Security 6, schema versionado com Flyway.",
+      "Domínio rico com regras de negócio na própria entidade e identidade pública desacoplada do id interno.",
     description:
-      "API REST de gerenciamento de tickets com mapeamento via MapStruct e documentação Swagger.",
-    stack: ["Java", "Spring Boot", "JWT", "Spring Security", "Flyway"],
+      "API REST de gestão de tickets de suporte em Java 21 + Spring Boot 3, com autenticação stateless via JWT (jjwt) e RBAC (REQUESTER/TECHNICIAN). Fluxo de status, cálculo automático de SLA por prioridade, histórico de mensagens por ticket e soft delete. Migrações versionadas com Flyway, mapeamento com MapStruct e documentação interativa no Swagger. Deploy no Render com PostgreSQL (Supabase) e Dockerfile multi-stage.",
+    stack: ["Java 21", "Spring Boot", "Spring Security", "JWT", "Flyway"],
     github: "https://github.com/DevNic0las/support-ticket-api",
     live: "https://support-ticket-api-upaj.onrender.com/api/swagger-ui/index.html",
     featured: false,
@@ -34,10 +34,10 @@ const projects = [
     number: "03",
     name: "Ponte",
     highlight:
-      "Fullstack ponta a ponta: API Spring Boot consumida por app Angular/Ionic.",
+      "Frontend Angular/Ionic consumindo a API Spring Boot, com storage de token por estratégia (web/mobile) e build Android via Capacitor.",
     description:
-      "Sistema de gerenciamento de tickets de suporte. Backend com Spring Boot, PostgreSQL e Docker; frontend com Angular e Ionic.",
-    stack: ["Java", "Spring Boot", "PostgreSQL", "Angular", "Ionic", "Docker"],
+      "Sistema fullstack de gestão de tickets proposto como substituto de um sistema legado. Backend em Spring Boot (JPA/Hibernate, Spring Security, Flyway) e frontend Angular/Ionic organizado por features, com standalone components, lazy loading e Strategy Pattern para alternar entre LocalStorage (web) e SecureStorage (mobile).",
+    stack: ["Angular", "TypeScript", "Ionic", "Capacitor", "Spring Boot"],
     github: "https://github.com/DevNic0las/ponte-app-v2",
     live: "",
     featured: false,

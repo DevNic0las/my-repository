@@ -21,8 +21,8 @@ const services = [
       <h1 class="hero-name">Nicolas Cajueiro</h1>
       <p class="hero-role">Backend Developer · Java & Spring Boot</p>
       <p class="hero-description">
-        Construo APIs e sistemas assíncronos com mensageria, retry e DLQ.
-        Meus projetos estão no ar: abra e teste.
+        Construo APIs REST e sistemas assíncronos em Java e Spring Boot, com
+        mensageria, retry e DLQ. Abra os projetos e veja o código.
       </p>
 
       <ul class="stack-badges">
@@ -51,28 +51,36 @@ const services = [
             <strong>{s.name}</strong>
             <small>{s.desc}</small>
           </span>
-          <span class="svc-state">verificando…</span>
+          <span class="svc-state" aria-live="polite">verificando…</span>
         </a>
       ))}
+      <p class="panel-note">hospedagem gratuita: o primeiro acesso pode acordar o serviço (cold start).</p>
       <a href="#projects" class="panel-more">todos os projetos ↓</a>
     </aside>
   </div>
 </section>
 
 <script>
-  document.querySelectorAll<HTMLElement>('[data-ping]').forEach(async (el) => {
-    const state = el.querySelector('.svc-state')!;
+  const services = document.querySelectorAll<HTMLElement>('[data-ping]');
+
+  services.forEach((el) => {
+    const state = el.querySelector<HTMLElement>('.svc-state');
+    if (!state) return;
+
     const ctrl = new AbortController();
     const timer = setTimeout(() => ctrl.abort(), 8000);
-    try {
-      await fetch(el.dataset.ping!, { mode: 'no-cors', signal: ctrl.signal });
-      el.dataset.state = 'up';
-      state.textContent = 'no ar';
-    } catch {
-      el.dataset.state = 'down';
-      state.textContent = 'acordando…';
-    }
-    clearTimeout(timer);
+
+    fetch(el.dataset.ping!, { mode: 'no-cors', signal: ctrl.signal })
+      .then(() => {
+        el.dataset.state = 'up';
+        state.textContent = 'no ar';
+      })
+      .catch(() => {
+        el.dataset.state = 'down';
+        state.textContent = 'acordando…';
+        el.title = 'Sem resposta em 8s — pode estar em cold start. Abra para acordar o serviço.';
+      })
+      .finally(() => clearTimeout(timer));
   });
 </script>
 
@@ -115,6 +123,7 @@ const services = [
   .svc-state { font-family: var(--font-mono); font-size: 11px; color: var(--text-secondary); }
   .panel-more { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); margin-top: .25rem; }
   .panel-more:hover { color: var(--text-primary); }
+  .panel-note { font-family: var(--font-mono); font-size: 10px; line-height: 1.5; color: var(--text-muted); opacity: .8; }
 
   @media (max-width: 480px) {
     .hero { padding-top: 6rem; }
