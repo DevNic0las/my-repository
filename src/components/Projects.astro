@@ -1,34 +1,48 @@
 ---
 const projects = [
   {
-    number: '01',
-    name: 'Ponte',
+    number: "01",
+    name: "OrderFlow",
+    highlight:
+      "Saga coreografada com outbox e idempotência: nenhum pedido se perde, mesmo com falha no meio.",
     description:
-      'Sistema fullstack de gerenciamento de tickets de suporte. Backend com Spring Boot, PostgreSQL e Docker; frontend com Angular e Ionic.',
-    stack: ['Java', 'Spring Boot', 'PostgreSQL', 'Angular', 'Ionic', 'Docker'],
-    github: 'https://github.com/DevNic0las/ponte-app-v2',
-    live: '',
+      "Sistema de pedidos distribuído orientado a eventos, com compensação e DLQ em Java 21 + Spring Boot sobre RabbitMQ.",
+    stack: ["Java", "Spring Boot", "RabbitMQ", "Docker"],
+    github: "https://github.com/DevNic0las/order-flow",
+    live: "https://web.proudpond-c6cb94c4.brazilsouth.azurecontainerapps.io/login",
     featured: true,
+    // TODO: substituir pelos dados reais da conta demo do OrderFlow
+    demo: { user: "TODO: usuário demo", pass: "TODO: senha demo" },
+    // TODO: adicionar print em public/projects/orderflow.png
+    image: "",
   },
   {
-    number: '02',
-    name: 'OrderFlow',
+    number: "02",
+    name: "Support Ticket API",
+    highlight:
+      "Autenticação stateless com JWT e Spring Security 6, schema versionado com Flyway.",
     description:
-      'Sistema de pedidos distribuído orientado a eventos, construído para demonstrar saga coreografada, outbox pattern, idempotência, compensação e DLQ em Java 21 + Spring Boot sobre RabbitMQ.',
-    stack: ['Java', 'Spring Boot', 'RabbitMQ', 'Docker'],
-    github: 'https://github.com/DevNic0las/order-flow',
-    live: 'https://web.proudpond-c6cb94c4.brazilsouth.azurecontainerapps.io/login',
+      "API REST de gerenciamento de tickets com mapeamento via MapStruct e documentação Swagger.",
+    stack: ["Java", "Spring Boot", "JWT", "Spring Security", "Flyway"],
+    github: "https://github.com/DevNic0las/support-ticket-api",
+    live: "https://support-ticket-api-upaj.onrender.com/api/swagger-ui/index.html",
     featured: false,
+    // TODO: adicionar print em public/projects/support-ticket-api.png
+    image: "",
   },
   {
-    number: '03',
-    name: 'Support Ticket API',
+    number: "03",
+    name: "Ponte",
+    highlight:
+      "Fullstack ponta a ponta: API Spring Boot consumida por app Angular/Ionic.",
     description:
-      'API REST de gerenciamento de tickets com autenticação JWT, Spring Security 6, Flyway migrations e mapeamento com MapStruct.',
-    stack: ['Java', 'Spring Boot', 'JWT', 'Spring Security', 'Flyway'],
-    github: 'https://github.com/DevNic0las/support-ticket-api',
-    live: 'https://support-ticket-api-upaj.onrender.com/api/swagger-ui/index.html',
+      "Sistema de gerenciamento de tickets de suporte. Backend com Spring Boot, PostgreSQL e Docker; frontend com Angular e Ionic.",
+    stack: ["Java", "Spring Boot", "PostgreSQL", "Angular", "Ionic", "Docker"],
+    github: "https://github.com/DevNic0las/ponte-app-v2",
+    live: "",
     featured: false,
+    // TODO: adicionar print em public/projects/ponte.png
+    image: "",
   },
 ];
 ---
@@ -40,45 +54,110 @@ const projects = [
     <h2 style="margin-bottom: 3rem;">O que já construí</h2>
 
     <div class="projects-list">
-      {projects.map((project) => (
-        <article class:list={['project-card', { featured: project.featured }]}>
-          <div class="project-header">
-            <span class="project-number">{project.number}</span>
-            <div class="project-links">
-              {project.github && (
-                <a href={project.github} target="_blank" rel="noopener" class="project-link" aria-label="Ver no GitHub">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-                  </svg>
-                  código
-                </a>
-              )}
-              {project.live && (
-                <a href={project.live} target="_blank" rel="noopener" class="project-link">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
-                  </svg>
-                  live
-                </a>
-              )}
+      {
+        projects.map((project) => (
+          <article
+            class:list={["project-card", { featured: project.featured }]}
+          >
+            <div class="project-header">
+              <span class="project-number">{project.number}</span>
+              <div class="project-links">
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener"
+                    class="project-link"
+                    aria-label="Ver no GitHub"
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                    </svg>
+                    código
+                  </a>
+                )}
+                {project.live && (
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener"
+                    class="project-link"
+                  >
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+                    </svg>
+                    live
+                  </a>
+                )}
+              </div>
             </div>
-          </div>
 
-          <h3 class="project-name">{project.name}</h3>
-          <p class="project-description">{project.description}</p>
+            <h3 class="project-name">{project.name}</h3>
 
-          <div class="project-stack">
-            {project.stack.map(tech => (
-              <span class="stack-tag">{tech}</span>
-            ))}
-          </div>
-        </article>
-      ))}
+            {project.image && (
+              <img
+                class="project-image"
+                src={project.image}
+                alt={`Print do projeto ${project.name}`}
+                loading="lazy"
+                decoding="async"
+                width="640"
+                height="360"
+              />
+            )}
+
+            <p class="project-highlight">{project.highlight}</p>
+            <p class="project-description">{project.description}</p>
+
+            {project.demo && (
+              <div class="project-demo">
+                <span class="demo-label">acesso demo</span>
+                <span class="demo-cred">
+                  <span class="demo-key">user</span> {project.demo.user}
+                </span>
+                <span class="demo-cred">
+                  <span class="demo-key">pass</span> {project.demo.pass}
+                </span>
+              </div>
+            )}
+
+            <div class="project-stack">
+              {project.stack.map((tech) => (
+                <span class="stack-tag">{tech}</span>
+              ))}
+            </div>
+          </article>
+        ))
+      }
     </div>
   </div>
 </section>
 
 <style>
+  .project-highlight {
+    font-size: 15px;
+    color: var(--text-secondary);
+    max-width: 560px;
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+  }
+
+  .project-card.featured {
+    padding-left: 1.25rem;
+    border-left: 2px solid var(--accent);
+  }
   .projects-list {
     display: flex;
     flex-direction: column;
@@ -149,6 +228,45 @@ const projects = [
     max-width: 560px;
     line-height: 1.6;
     margin-bottom: 1.25rem;
+  }
+
+  .project-image {
+    display: block;
+    width: 100%;
+    max-width: 640px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    margin-bottom: 1.25rem;
+  }
+
+  .project-demo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border);
+    border-left: 2px solid var(--accent);
+    border-radius: 3px;
+    background: var(--bg-card);
+    margin-bottom: 1.25rem;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+
+  .demo-label {
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 10px;
+  }
+
+  .demo-key {
+    color: var(--text-muted);
   }
 
   .project-stack {
