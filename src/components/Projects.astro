@@ -47,7 +47,7 @@ const projects = [
 ];
 ---
 
-<section class="section" id="projects">
+<section class="section" id="projects" data-animate>
   <div class="container">
     <p class="section-label">projetos</p>
 
@@ -265,6 +265,10 @@ const projects = [
     font-size: 10px;
   }
 
+  .demo-cred {
+    overflow-wrap: anywhere;
+  }
+
   .demo-key {
     color: var(--text-muted);
   }
@@ -283,5 +287,21 @@ const projects = [
     border: 1px solid var(--border);
     color: var(--text-muted);
     border-radius: 2px;
+  }
+
+  @media (max-width: 1200px) {
+    .project-description,
+    .project-highlight {
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .project-card {
+      padding: 1.75rem 0;
+    }
+    .project-card.featured {
+      padding-left: 1rem;
+    }
   }
 </style>

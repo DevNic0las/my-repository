@@ -1,7 +1,7 @@
 ---
 ---
 
-<section class="section" id="contact">
+<section class="section" id="contact" data-animate>
   <div class="container">
     <p class="section-label">contato</p>
 
@@ -12,7 +12,7 @@
         Se tiver uma vaga ou quiser bater um papo sobre tecnologia, é só chamar.
       </p>
 
-      <a href="mailto:seuemail@email.com" class="contact-email">
+      <a href="mailto:nicolascajueiro098@gmail.com" class="contact-email">
         nicolascajueiro098@gmail.com
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
           <path d="M7 17L17 7M17 7H7M17 7v10"/>
@@ -64,12 +64,14 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 1rem;
+    font-size: clamp(0.85rem, 3.5vw, 1rem);
     color: var(--text-primary);
     border-bottom: 1px solid var(--border);
     padding-bottom: 0.25rem;
     transition: border-color 0.2s;
     margin-bottom: 2.5rem;
+    overflow-wrap: anywhere;
+    max-width: 100%;
   }
 
   .contact-email:hover {

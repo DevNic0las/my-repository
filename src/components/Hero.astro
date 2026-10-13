@@ -115,4 +115,12 @@ const services = [
   .svc-state { font-family: var(--font-mono); font-size: 11px; color: var(--text-secondary); }
   .panel-more { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); margin-top: .25rem; }
   .panel-more:hover { color: var(--text-primary); }
+
+  @media (max-width: 480px) {
+    .hero { padding-top: 6rem; }
+    .hero-actions { gap: .5rem; }
+    .btn-primary, .btn-ghost { padding: .65rem 1rem; flex: 1 1 auto; }
+    .hero-socials { gap: 1rem; }
+    .panel { padding: 1rem; }
+  }
 </style>
